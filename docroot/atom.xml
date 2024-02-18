@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Cool Blog]]></title>
+  <link href="http://blog.example.com//atom.xml" rel="self" />
+  <link href="http://blog.example.com/" />
+  <updated>2024-02-18T17:55:39-05:00</updated>
+  <id>http://blog.example.com/</id>
+  <author>
+    <name><![CDATA[Sam Handwich]]></name>
+    <email><![CDATA[s.handwich@example.com]]></email>
+  </author>
+  <generator uri="https://github.com/jmacdotorg/plerd">Plerd</generator>
+
+
+  <entry>
+    <title type="html"><![CDATA[Hello world!]]></title>
+    <link href="http://blog.example.com/2024-02-18%20Hello%20World.html"/>
+    <published>2024-02-18T17:55:39-05:00</published>
+    <updated>2024-02-18T17:55:39-05:00</updated>
+    <id>http://blog.example.com/2024-02-18%20Hello%20World.html</id>
+    <content type="html"><![CDATA[<p>Hello!</p>
+]]></content>
+  </entry>
+
+
+</feed>
