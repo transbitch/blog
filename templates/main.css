@@ -39,6 +39,7 @@ html, article {
 }
 
 body {
+    min-width: 0;
     max-width: 100ch;
     flex-grow: 1;
 }
@@ -46,6 +47,7 @@ body {
 .articlewrapper {
     max-width: 70ch;
     flex-grow: 1;
+    min-width: 0;
 }
 
 .xoxo {
@@ -78,6 +80,7 @@ code {
     border-radius: 6px;
     background-color: #3c3c3c;
     color: white;
+    overflow-wrap: break-word;
 }
 
 cite {
