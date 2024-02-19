@@ -1,0 +1,10 @@
+:root {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Abril Fatface" /* a fatface just like you, Aevann! :!marseysmug3: */, Times, serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
