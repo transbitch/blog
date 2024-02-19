@@ -11,14 +11,14 @@ type Page = PageLit & typeof PageProto;
 type PageLit = {
     date: string | null;
     title: string;
-    contentMd: string;
+    contentRaw: string;
     previous?: Page;
     next?: Page;
 }
 
 const PageProto = {
     get href() {
-        return `/${this.date}/${yassify(this.title)}/`;
+        return `/${(this as any).date}/${yassify((this as any).title)}/`;
     },
     
     get diskPath() {
@@ -52,8 +52,8 @@ const yassify = (text: string) => {
 
     const files = await fs.readdir('src', { recursive: true, withFileTypes: true });
 
-    const pages: Page[] = await Promise.all(files.map(async file => {
-        if (!file.isFile()) {
+    const pages: Page[] = (await Promise.all(files.map(async file => {
+        if (!file.isFile() || file.parentPath.includes('.obsidian')) {
             return;
         }
 
@@ -66,9 +66,9 @@ const yassify = (text: string) => {
         return Page({
             date,
             title,
-            contentMd
+            contentRaw: contentMd
         });
-    }));
+    }))).filter(f => f);
 
     pages.sort((a: Page, b: Page) => a.date && b.date ? a.date.localeCompare(b.date, 'en') : 0);
     for (let i = 0; i < pages.length - 1; i++) {
@@ -79,7 +79,7 @@ const yassify = (text: string) => {
     await Promise.all(pages.map(async (page) => {
         console.log('Path '+page.diskPath);
         const navHtml = nav({ page });
-        const contentHtml = marked(page.contentMd);
+        const contentHtml = renderHtml(page.contentRaw);
         const pageHtml = base({ title: page.title, content: contentHtml, nav: navHtml });
         await fs.outputFile(page.diskPath, pageHtml);
     }));
@@ -88,3 +88,26 @@ const yassify = (text: string) => {
 
     console.log('Slay qxeen we done!');
 })();
+
+const renderHtml = (str: string) => {
+    str = str.replaceAll(/:[\w!#]+:/g, renderEmoji);
+    // TODO: find a way to link to user id's
+    str = str.replaceAll(/@[\w]+/g, (match) => `<a href="https://rdrama.net/${match}">${match}</a>`);
+    str = marked(str);
+    return str;
+}
+
+const renderEmoji = (str: string) => {
+    str = str.substring(1, str.length - 1);
+    let big = false;
+    let reversed = false;
+    if (str.includes('#')) {
+        big = true;
+        str = str.replace('#', '');
+    }
+    if (str.includes('!')) {
+        reversed = true;
+        str = str.replace('!', '');
+    }
+    return `<img class="emoji" src="https://i.rdrama.net/e/${str}.webp" alt="${str}">`
+}
