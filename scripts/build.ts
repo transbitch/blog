@@ -34,10 +34,28 @@ const Page = (lit: PageLit) => {
 }
 
 const yassify = (text: string) => {
-    return text
+    text = text
         .toLowerCase()
         .trim()
-        .replace(/[^\w]/g, '-')
+        .replace(/[']/g, '')
+        .replace(/[^\w]/g, '-');
+
+    if (text.length > 20) {
+        const spliced = text
+            .substring(0, 21)
+            .split('-')
+            .slice(0, -1)
+            .join('-');
+
+        if (spliced.length < 5) {
+            text = text.substring(0, 20);
+        } else {
+            text = spliced;
+        }
+    }
+
+    return text
+        // Remove double dashes and dashes at the start and end
         .replace(/-+/, '-')
         .replace(/^-/, '')
         .replace(/-$/, '');
@@ -47,6 +65,7 @@ const yassify = (text: string) => {
     await fs.emptyDir('docs');
     fs.copy('static', 'docs');
 
+    const css = await fs.readFile('templates/main.css', 'utf-8');
     const base = handlebars.compile(await fs.readFile('templates/base.html', 'utf-8'));
     const nav = handlebars.compile(await fs.readFile('templates/nav.html', 'utf-8'));
 
@@ -80,7 +99,7 @@ const yassify = (text: string) => {
         console.log('Path '+page.diskPath);
         const navHtml = nav({ page });
         const contentHtml = renderHtml(page.contentRaw);
-        const pageHtml = base({ title: page.title, content: contentHtml, nav: navHtml });
+        const pageHtml = base({ title: page.title, content: contentHtml, nav: navHtml, css });
         await fs.outputFile(page.diskPath, pageHtml);
     }));
 
