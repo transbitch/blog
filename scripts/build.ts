@@ -61,7 +61,7 @@ const yassify = (text: string) => {
         console.log(path);
         const contentMd = await fs.readFile(path, 'utf-8');
 
-        const [date, title] = file.name.match(/(\d{4}-\d{2}-\d{2}) (.*)\.md/)?.slice(1) ?? [null, file.name.split('.')[0]];
+        const [date, title] = file.name.match(/(\d{4}-\d{2}-\d{2}\w*) (.*)\.md/)?.slice(1) ?? [null, file.name.split('.')[0]];
 
         return Page({
             date,
@@ -92,8 +92,9 @@ const yassify = (text: string) => {
 const renderHtml = (str: string) => {
     str = str.replaceAll(/:[\w!#]+:/g, renderEmoji);
     // TODO: find a way to link to user id's
-    str = str.replaceAll(/@[\w]+/g, (match) => `<a href="https://rdrama.net/${match}">${match}</a>`);
+    str = str.replaceAll(/@d:[\w]+/g, (match) => `<a href="https://rdrama.net/${match.replace('d:', '')}">${match.replace('d:', '')}</a>`);
     str = marked(str);
+    str = str.replaceAll(/—<a.*?>.*?<\/a>/g, match => `<cite>${match}</cite>`);
     return str;
 }
 
