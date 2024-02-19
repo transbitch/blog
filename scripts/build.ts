@@ -1,7 +1,10 @@
 const { marked } = require('marked');
 const fs = require('fs-extra');
-// @ts-ignore
-const Handlebars = require('handlebars');
+const _handlebars = require('handlebars');
+
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const handlebars = allowInsecurePrototypeAccess(_handlebars);
+
 
 type Page = PageLit & typeof PageProto;
 
@@ -15,11 +18,11 @@ type PageLit = {
 
 const PageProto = {
     get href() {
-        return `/${this.date}/${yassify(this.title)}/index.html`;
+        return `/${this.date}/${yassify(this.title)}/`;
     },
     
     get diskPath() {
-        return `docs${this.href}`;
+        return `docs${this.href}index.html`;
     }
 }
 
@@ -44,7 +47,8 @@ const yassify = (text: string) => {
     await fs.emptyDir('docs');
     fs.copy('static', 'docs');
 
-    const base = Handlebars.compile(await fs.readFile('templates/base.html', 'utf-8'));
+    const base = handlebars.compile(await fs.readFile('templates/base.html', 'utf-8'));
+    const nav = handlebars.compile(await fs.readFile('templates/nav.html', 'utf-8'));
 
     const files = await fs.readdir('src', { recursive: true, withFileTypes: true });
 
@@ -74,8 +78,9 @@ const yassify = (text: string) => {
 
     await Promise.all(pages.map(async (page) => {
         console.log('Path '+page.diskPath);
+        const navHtml = nav({ page });
         const contentHtml = marked(page.contentMd);
-        const pageHtml = base({ title: page.title, content: contentHtml });
+        const pageHtml = base({ title: page.title, content: contentHtml, nav: navHtml });
         await fs.outputFile(page.diskPath, pageHtml);
     }));
 

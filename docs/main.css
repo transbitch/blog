@@ -1,10 +1,47 @@
 :root {
     font-family: 'Noto Sans', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    --accent: #ff61ad;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Abril Fatface" /* a fatface just like you, Aevann! :!marseysmug3: */, Times, serif;
-    color: #000;
-    margin: 0;
+    font-family: "Patua One", Times, serif;
+    margin-bottom: 0;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+.prevnext ul {
+    list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.blogtitle {
+    color: #b07ad4;
+}
+
+html, article {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    max-width: 100ch;
+    flex-grow: 1;
+}
+
+.articlewrapper {
+    max-width: 70ch;
+    flex-grow: 1;
 }

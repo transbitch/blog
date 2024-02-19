@@ -1,0 +1,10 @@
+<nav class="prevnext">
+    <ul>
+        {{#if page.previous}}
+            <li class="prev"><a href="{{ page.previous.href }}">← prev</a></li>
+        {{/if}}
+        {{#if page.next}}
+            <li class="next"><a href="{{ page.next.href }}">next →</a></li>
+        {{/if}}
+    </ul>
+</nav>
