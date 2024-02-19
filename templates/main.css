@@ -80,6 +80,7 @@ code {
     border-radius: 6px;
     background-color: #3c3c3c;
     color: white;
+    white-space: pre;
 }
 
 cite {
