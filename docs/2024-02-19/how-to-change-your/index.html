@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     font-family: "Patua One", Times, serif;
     margin-bottom: 0;
+    line-height: 0.9;
 }
 
 p {
@@ -92,13 +93,44 @@ code {
     white-space: pre;
 }
 
-cite {
+cite, div.card::before {
     background-color: #3c3c3c;
     padding: 0.2em 0.5em;
     position: absolute;
     border-radius: 6px;
     bottom: -0.5em;
     right: -0.5em;
+}
+
+.fill {
+    position: absolute;
+    inset: -0.5em;
+}
+
+div.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 6px;
+    background-color: rgba(252, 237, 255, 0.091);
+    margin: 0;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
+div.card::before {
+    content: "read more →";
+    color: var(--accent);
+}
+
+div.card > * {
+    margin: 0.5rem 0;
+}
+
+.preview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 10rem;
 }
         </style>
 
@@ -136,8 +168,9 @@ cite {
 <p>The US inherits this thing called &quot;common law&quot; from Britain. In our case, this means that your &quot;name&quot; is whatever you go by in day-to-day life. In this sense, using a new affirmed name means that, in a sense, you have already taken up a new &quot;legal&quot; name. There is no such thing as a &quot;legal&quot; name truly; &quot;legal&quot; is just the word we use to describe the name that appears on official identity documents. Some states have methods for a name change that follows common law. For example, Illinois (my state, as I live in Chicago), allows you to amend the name on your birth certificate IF you can provide satisfactory evidence that your name is different in the form of records (such as school records, medical records, etc.) created BEFORE you turned 19. Other states may have similar laws; you should check with your state on all of your identity documents to see what the requirements for amending them is. Once you can get one document updated, it&#39;s a lot easier to update all of the others. You won&#39;t have a court order, unlike the other methods.</p>
 <h1><img class="emoji" src="https://i.rdrama.net/e/marseyjudge.webp" alt="marseyjudge"> Legal Name Change Under Seal</h1>
 <p>Cost: $100-$500</p>
-<p>Some people are more equal than others. You need to find a jurisdiction with <em>favorable name change laws.</em> Ideally, your chosen jurisdiction should: - Have no publication requirement, or waive the publication requirement.</p>
+<p>Some people are more equal than others. You need to find a jurisdiction with <em>favorable name change laws.</em> Ideally, your chosen jurisdiction should:</p>
 <ul>
+<li>Have no publication requirement, or waive the publication requirement.</li>
 <li>Seal/impound the record. This means that people (e.g. KiwiFarms) can&#39;t find record of your name change online. </li>
 <li>Not check residency requirements, if you are going to lie about where you live.</li>
 <li>Do online (Zoom) court, if you are going to lie about where you live.</li>

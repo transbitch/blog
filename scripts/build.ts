@@ -68,6 +68,7 @@ const yassify = (text: string) => {
     const css = await fs.readFile('templates/main.css', 'utf-8');
     const base = handlebars.compile(await fs.readFile('templates/base.html', 'utf-8'));
     const nav = handlebars.compile(await fs.readFile('templates/nav.html', 'utf-8'));
+    const home = handlebars.compile(await fs.readFile('templates/home.html', 'utf-8'));
 
     const files = await fs.readdir('src', { recursive: true, withFileTypes: true });
 
@@ -103,7 +104,10 @@ const yassify = (text: string) => {
         await fs.outputFile(page.diskPath, pageHtml);
     }));
 
-    fs.copy(pages.at(-1)?.diskPath, 'docs/index.html')
+    // Render homepage
+    const homepageContent = home({ latestPost: pages.at(-1) });
+    const homepage = base({ title: 'Welcome to My Blog', content: homepageContent, nav: '', css });
+    await fs.outputFile('docs/index.html', homepage);
 
     console.log('Slay qxeen we done!');
 })();

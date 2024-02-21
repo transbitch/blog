@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     font-family: "Patua One", Times, serif;
     margin-bottom: 0;
+    line-height: 0.9;
 }
 
 p {
@@ -92,13 +93,44 @@ code {
     white-space: pre;
 }
 
-cite {
+cite, div.card::before {
     background-color: #3c3c3c;
     padding: 0.2em 0.5em;
     position: absolute;
     border-radius: 6px;
     bottom: -0.5em;
     right: -0.5em;
+}
+
+.fill {
+    position: absolute;
+    inset: -0.5em;
+}
+
+div.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 6px;
+    background-color: rgba(252, 237, 255, 0.091);
+    margin: 0;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
+div.card::before {
+    content: "read more →";
+    color: var(--accent);
+}
+
+div.card > * {
+    margin: 0.5rem 0;
+}
+
+.preview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 10rem;
 }
         </style>
 
@@ -115,40 +147,33 @@ cite {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-        <title>How to Change Your Name without Leaving a Paper Trail</title>
+        <title>Welcome to My Blog</title>
     </head>
     <body>
         <header>
             <a href="/"><h2 class="blogtitle">transbitch's blog</h2></a>
-            <nav class="prevnext">
-    <ul>
-            <li class="prev"><a href="/2024-02-18b/the-secret-rust-flag/">← prev</a></li>
-    </ul>
-</nav>
+            
         </header>
         <article>
             <div class="articlewrapper">
-                <h1>How to Change Your Name without Leaving a Paper Trail</h1>
-                <p><em>This is a repost of something I <a href="https://rdrama.net/h/transgender/post/238575/how-to-change-your-name-without">previously posted</a> to rDrama, but I would like to have it here as well.</em></p>
-<p>Hey kids! So you&#39;ve picked out a cute little name and you would like to make it official by legally changing it <img class="emoji" src="https://i.rdrama.net/e/marseytransplushie.webp" alt="marseytransplushie"> but you don&#39;t want to leave a legal record of your name change <img class="emoji" src="https://i.rdrama.net/e/marseyjudge.webp" alt="marseyjudge"> Well, I&#39;ve got the perfect guide for you! There are three methods: the Common Law Name Change (legal), the Legal Name Change (legal), and the Forged Name Change (illegal). Each has its own pros and cons, and whichever you choose depends on your personal risk tolerance.</p>
-<h1><img class="emoji" src="https://i.rdrama.net/e/marseybeggar.webp" alt="marseybeggar"> Common Law Name Change</h1>
-<p>Cost: Free</p>
-<p>The US inherits this thing called &quot;common law&quot; from Britain. In our case, this means that your &quot;name&quot; is whatever you go by in day-to-day life. In this sense, using a new affirmed name means that, in a sense, you have already taken up a new &quot;legal&quot; name. There is no such thing as a &quot;legal&quot; name truly; &quot;legal&quot; is just the word we use to describe the name that appears on official identity documents. Some states have methods for a name change that follows common law. For example, Illinois (my state, as I live in Chicago), allows you to amend the name on your birth certificate IF you can provide satisfactory evidence that your name is different in the form of records (such as school records, medical records, etc.) created BEFORE you turned 19. Other states may have similar laws; you should check with your state on all of your identity documents to see what the requirements for amending them is. Once you can get one document updated, it&#39;s a lot easier to update all of the others. You won&#39;t have a court order, unlike the other methods.</p>
-<h1><img class="emoji" src="https://i.rdrama.net/e/marseyjudge.webp" alt="marseyjudge"> Legal Name Change Under Seal</h1>
-<p>Cost: $100-$500</p>
-<p>Some people are more equal than others. You need to find a jurisdiction with <em>favorable name change laws.</em> Ideally, your chosen jurisdiction should: - Have no publication requirement, or waive the publication requirement.</p>
-<ul>
-<li>Seal/impound the record. This means that people (e.g. KiwiFarms) can&#39;t find record of your name change online. </li>
-<li>Not check residency requirements, if you are going to lie about where you live.</li>
-<li>Do online (Zoom) court, if you are going to lie about where you live.</li>
-</ul>
-<p>Name changes are only permitted for people who live in that county. So you&#39;ll need to either move there, or lie about where you live. Once you get your order, get a few certified copies of it.</p>
-<h1><img class="emoji" src="https://i.rdrama.net/e/marseyfedpostglow.webp" alt="marseyfedpostglow"> Forged Name Change</h1>
-<p>Cost: Free</p>
-<p>The best way to forge a name change is by forging the order that the judge would usually give. What you can do is find the order that the judge is supposed to fill out online, fill it out yourself (pretending you are the judge), add the certification stamp (we will get to this), and then printing it out. The order is literally just a piece of paper that says your old name and your new name with some fancy legalese; its much easier than forging a birth certificate (issued on secure paper). When you go to the DMV to change your driver&#39;s license, your school to change the name on the record, etc, they&#39;ll just glance at the order. They don&#39;t verify with the Court that is actually real; indeed, they cannot even verify if it is if the case is sealed, because it is hidden to the public.</p>
-<p>Forging the stamp may be difficult. You could try without it, but some places may not accept it. It may be helpful if your forged jurisdiction is out-of-state, because then people don&#39;t know what the order is supposed to look like. Note that being an affluent white woman helps in coaxing minimum wage workers into accepting fraudulent or insufficient documentation; if you are not white this might be a little harder. To forge the stamp, I recommend finding an actual certified copy of a case from some jurisdiction. Usually you can pick these up from the court for pretty cheap. Just find some interesting case, go to the Clerk of the Court and ask for a certified copy. (I had to do this in person).</p>
-<p>The good thing about this is that it leaves no record of your name change with the glowies <img class="emoji" src="https://i.rdrama.net/e/marseyglow.webp" alt="marseyglow"> in the courthouse, and its free. Additionally, due to the aforementioned common law, the only crime your committing here is forging the order. Your new name is still your &quot;legal&quot; name, and They can&#39;t take that away from you.</p>
-
+                <h1>Welcome to My Blog</h1>
+                <p>
+    I'm going to be posting all of my thoughts and feelings on here from
+    now on. I'm not going to let big Capy stop me from sharing
+    my thoughts with the world, even if I am banned from rDrama (for good?). 
+</p>
+<p>
+    <strong>
+        I will be back to rDrama someday, and I will be stronger than ever before.
+    </strong>
+</p>
+<p>
+    <div class="card">
+        <h3 style="margin-bottom: -1rem;">Latest post</h3>
+        <h1><a href="/2024-02-19/how-to-change-your/">How to Change Your Name without Leaving a Paper Trail</a></h1>
+        <a class="fill" href="/2024-02-19/how-to-change-your/"></a>
+    </div>
+</p>
             </div>
         </article>
         <footer>

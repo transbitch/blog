@@ -8,7 +8,8 @@ The US inherits this thing called "common law" from Britain. In our case, this m
 # :marseyjudge: Legal Name Change Under Seal
 Cost: $100-$500
 
-Some people are more equal than others. You need to find a jurisdiction with *favorable name change laws.* Ideally, your chosen jurisdiction should: - Have no publication requirement, or waive the publication requirement.
+Some people are more equal than others. You need to find a jurisdiction with *favorable name change laws.* Ideally, your chosen jurisdiction should:
+- Have no publication requirement, or waive the publication requirement.
 - Seal/impound the record. This means that people (e.g. KiwiFarms) can't find record of your name change online. 
 - Not check residency requirements, if you are going to lie about where you live.
 - Do online (Zoom) court, if you are going to lie about where you live. 
